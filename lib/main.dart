@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/customformfield.dart';
 
 void main() {
   runApp(const IMCApp());
@@ -27,17 +28,6 @@ class _IMCState extends State<IMCHomePage> {
   final pesoController = TextEditingController();
   final alturaController = TextEditingController();
 
-  _validarNumeros(value) {
-    if (value == null || value.isEmpty) {
-      return 'Insira um valor!';
-    }
-    final numero = double.tryParse(value.replaceFirst(',', '.'));
-    if (numero == null || numero < 0) {
-      return 'Insira um número válido!';
-    }
-    return null;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,30 +40,16 @@ class _IMCState extends State<IMCHomePage> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              TextFormField(
-                keyboardType: TextInputType.number,
+              CustomFormField(
                 controller: pesoController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Peso (kg)',
-                ),
-                validator: (value) {
-                  return _validarNumeros(value);
-                },
+                labelText: 'Peso (kg)',
               ),
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                keyboardType: TextInputType.number,
+              CustomFormField(
                 controller: alturaController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Altura (m)',
-                ),
-                validator: (value) {
-                  return _validarNumeros(value);
-                },
+                labelText: 'Altura (m)',
               ),
               const SizedBox(
                 height: 10,
