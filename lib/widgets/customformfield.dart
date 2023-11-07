@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomFormField extends StatelessWidget {
   final String labelText;
-  final controller;
+  final TextEditingController controller;
 
   const CustomFormField({
     super.key,
@@ -27,7 +27,7 @@ class CustomFormField extends StatelessWidget {
       keyboardType: TextInputType.number,
       controller: controller,
       decoration: InputDecoration(
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         labelText: labelText,
       ),
       validator: (value) {
